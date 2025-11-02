@@ -66,59 +66,6 @@ static void MX_TIM2_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
-// Bảng tra cứu cho LED 7 đoạn (hiển thị số từ 0 đến 9)
-const uint8_t seven_seg_digits[] = {
-    0b0000001, // 0
-    0b1001111, // 1
-    0b0010010, // 2
-    0b0000110, // 3
-    0b1001100, // 4
-    0b0100100, // 5
-    0b0100000, // 6
-    0b0001111, // 7
-    0b0000000, // 8
-    0b0000100  // 9
-};
-
-void display7SEG1(int number) {
-    if (number < 0 || number > 9) return;  // Kiểm tra số hợp lệ
-
-    uint8_t digit = seven_seg_digits[number];  // Lấy trạng thái từ bảng tra cứu
-
-    HAL_GPIO_WritePin(SEG0_GPIO_Port, SEG0_Pin, (digit & 0x01) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEG1_GPIO_Port, SEG1_Pin, (digit & 0x02) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEG2_GPIO_Port, SEG2_Pin, (digit & 0x04) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEG3_GPIO_Port, SEG3_Pin, (digit & 0x08) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEG4_GPIO_Port, SEG4_Pin, (digit & 0x10) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEG5_GPIO_Port, SEG5_Pin, (digit & 0x20) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEG6_GPIO_Port, SEG6_Pin, (digit & 0x40) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-}
-void display7SEG2(int number) {
-    if (number < 0 || number > 9) return;  // Kiểm tra số hợp lệ
-
-    uint8_t digit = seven_seg_digits[number];  // Lấy trạng thái từ bảng tra cứu
-
-    HAL_GPIO_WritePin(SEG_0_GPIO_Port, SEG_0_Pin, (digit & 0x01) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEG_1_GPIO_Port, SEG_1_Pin, (digit & 0x02) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEG_2_GPIO_Port, SEG_2_Pin, (digit & 0x04) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEG_3_GPIO_Port, SEG_3_Pin, (digit & 0x08) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEG_4_GPIO_Port, SEG_4_Pin, (digit & 0x10) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEG_5_GPIO_Port, SEG_5_Pin, (digit & 0x20) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEG_6_GPIO_Port, SEG_6_Pin, (digit & 0x40) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-}
-void display7SEGMODE(int number) {
-    if (number < 0 || number > 9) return;  // Kiểm tra số hợp lệ
-
-    uint8_t digit = seven_seg_digits[number];  // Lấy trạng thái từ bảng tra cứu
-
-    HAL_GPIO_WritePin(SEGM0_GPIO_Port, SEGM0_Pin, (digit & 0x01) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEGM1_GPIO_Port, SEGM1_Pin, (digit & 0x02) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEGM2_GPIO_Port, SEGM2_Pin, (digit & 0x04) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEGM3_GPIO_Port, SEGM3_Pin, (digit & 0x08) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEGM4_GPIO_Port, SEGM4_Pin, (digit & 0x10) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEGM5_GPIO_Port, SEGM5_Pin, (digit & 0x20) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-    HAL_GPIO_WritePin(SEGM6_GPIO_Port, SEGM6_Pin, (digit & 0x40) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-}
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -257,10 +204,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, EN0_Pin|Button1_Pin|Button2_Pin|Button3_Pin
-                          |GREEN_LED_Pin|YELLOW_LED_Pin|RED_LED_Pin|GREEN_LED1_Pin
-                          |YELLOW_LED1_Pin|RED_LED1_Pin|SEGM0_Pin|SEGM1_Pin
-                          |SEGM2_Pin|SEGM3_Pin|SEGM4_Pin|SEGM5_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, EN0_Pin|GREEN_LED_Pin|YELLOW_LED_Pin|RED_LED_Pin
+                          |GREEN_LED1_Pin|YELLOW_LED1_Pin|RED_LED1_Pin|SEGM0_Pin
+                          |SEGM1_Pin|SEGM2_Pin|SEGM3_Pin|SEGM4_Pin
+                          |SEGM5_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, SEGM6_Pin|SEG0_Pin|SEG1_Pin|SEG_2_Pin
@@ -268,17 +215,23 @@ static void MX_GPIO_Init(void)
                           |EN1_Pin|SEG2_Pin|SEG3_Pin|SEG4_Pin
                           |SEG5_Pin|SEG6_Pin|SEG_1_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : EN0_Pin Button1_Pin Button2_Pin Button3_Pin
-                           GREEN_LED_Pin YELLOW_LED_Pin RED_LED_Pin GREEN_LED1_Pin
-                           YELLOW_LED1_Pin RED_LED1_Pin SEGM0_Pin SEGM1_Pin
-                           SEGM2_Pin SEGM3_Pin SEGM4_Pin SEGM5_Pin */
-  GPIO_InitStruct.Pin = EN0_Pin|Button1_Pin|Button2_Pin|Button3_Pin
-                          |GREEN_LED_Pin|YELLOW_LED_Pin|RED_LED_Pin|GREEN_LED1_Pin
-                          |YELLOW_LED1_Pin|RED_LED1_Pin|SEGM0_Pin|SEGM1_Pin
-                          |SEGM2_Pin|SEGM3_Pin|SEGM4_Pin|SEGM5_Pin;
+  /*Configure GPIO pins : EN0_Pin GREEN_LED_Pin YELLOW_LED_Pin RED_LED_Pin
+                           GREEN_LED1_Pin YELLOW_LED1_Pin RED_LED1_Pin SEGM0_Pin
+                           SEGM1_Pin SEGM2_Pin SEGM3_Pin SEGM4_Pin
+                           SEGM5_Pin */
+  GPIO_InitStruct.Pin = EN0_Pin|GREEN_LED_Pin|YELLOW_LED_Pin|RED_LED_Pin
+                          |GREEN_LED1_Pin|YELLOW_LED1_Pin|RED_LED1_Pin|SEGM0_Pin
+                          |SEGM1_Pin|SEGM2_Pin|SEGM3_Pin|SEGM4_Pin
+                          |SEGM5_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : Button1_Pin Button2_Pin Button3_Pin */
+  GPIO_InitStruct.Pin = Button1_Pin|Button2_Pin|Button3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : SEGM6_Pin SEG0_Pin SEG1_Pin SEG_2_Pin
