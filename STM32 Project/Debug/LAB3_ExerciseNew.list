@@ -2569,24 +2569,24 @@ void fsm_manual_run(){
  800148c:	4608      	mov	r0, r1
  800148e:	f7ff f82d 	bl	80004ec <display7SEG2>
 		}
-		Increasing_time(&default_red, &display_red);
- 8001492:	4974      	ldr	r1, [pc, #464]	; (8001664 <fsm_manual_run+0x2d0>)
- 8001494:	4871      	ldr	r0, [pc, #452]	; (800165c <fsm_manual_run+0x2c8>)
- 8001496:	f7fe fe59 	bl	800014c <Increasing_time>
-		Saving_time(&display_red, &default_red);
- 800149a:	4970      	ldr	r1, [pc, #448]	; (800165c <fsm_manual_run+0x2c8>)
- 800149c:	4871      	ldr	r0, [pc, #452]	; (8001664 <fsm_manual_run+0x2d0>)
- 800149e:	f7fe fe81 	bl	80001a4 <Saving_time>
 		HAL_GPIO_WritePin(YELLOW_LED_GPIO_Port,YELLOW_LED_Pin, GPIO_PIN_SET);
- 80014a2:	2201      	movs	r2, #1
- 80014a4:	2120      	movs	r1, #32
- 80014a6:	4871      	ldr	r0, [pc, #452]	; (800166c <fsm_manual_run+0x2d8>)
- 80014a8:	f000 fe7d 	bl	80021a6 <HAL_GPIO_WritePin>
+ 8001492:	2201      	movs	r2, #1
+ 8001494:	2120      	movs	r1, #32
+ 8001496:	4875      	ldr	r0, [pc, #468]	; (800166c <fsm_manual_run+0x2d8>)
+ 8001498:	f000 fe85 	bl	80021a6 <HAL_GPIO_WritePin>
 		HAL_GPIO_WritePin(GREEN_LED_GPIO_Port,GREEN_LED_Pin, GPIO_PIN_SET);
- 80014ac:	2201      	movs	r2, #1
- 80014ae:	2110      	movs	r1, #16
- 80014b0:	486e      	ldr	r0, [pc, #440]	; (800166c <fsm_manual_run+0x2d8>)
- 80014b2:	f000 fe78 	bl	80021a6 <HAL_GPIO_WritePin>
+ 800149c:	2201      	movs	r2, #1
+ 800149e:	2110      	movs	r1, #16
+ 80014a0:	4872      	ldr	r0, [pc, #456]	; (800166c <fsm_manual_run+0x2d8>)
+ 80014a2:	f000 fe80 	bl	80021a6 <HAL_GPIO_WritePin>
+		Increasing_time(&default_red, &display_red);
+ 80014a6:	496f      	ldr	r1, [pc, #444]	; (8001664 <fsm_manual_run+0x2d0>)
+ 80014a8:	486c      	ldr	r0, [pc, #432]	; (800165c <fsm_manual_run+0x2c8>)
+ 80014aa:	f7fe fe4f 	bl	800014c <Increasing_time>
+		Saving_time(&display_red, &default_red);
+ 80014ae:	496b      	ldr	r1, [pc, #428]	; (800165c <fsm_manual_run+0x2c8>)
+ 80014b0:	486c      	ldr	r0, [pc, #432]	; (8001664 <fsm_manual_run+0x2d0>)
+ 80014b2:	f7fe fe77 	bl	80001a4 <Saving_time>
 		if(isButton1Pressed()==1){
  80014b6:	f7ff fc09 	bl	8000ccc <isButton1Pressed>
  80014ba:	4603      	mov	r3, r0
@@ -2661,24 +2661,24 @@ void fsm_manual_run(){
  800153a:	4608      	mov	r0, r1
  800153c:	f7fe ffd6 	bl	80004ec <display7SEG2>
 		}
-		Increasing_time(&default_green, &display_green);
- 8001540:	494d      	ldr	r1, [pc, #308]	; (8001678 <fsm_manual_run+0x2e4>)
- 8001542:	484c      	ldr	r0, [pc, #304]	; (8001674 <fsm_manual_run+0x2e0>)
- 8001544:	f7fe fe02 	bl	800014c <Increasing_time>
-		Saving_time(&display_green, &default_green);
- 8001548:	494a      	ldr	r1, [pc, #296]	; (8001674 <fsm_manual_run+0x2e0>)
- 800154a:	484b      	ldr	r0, [pc, #300]	; (8001678 <fsm_manual_run+0x2e4>)
- 800154c:	f7fe fe2a 	bl	80001a4 <Saving_time>
 		HAL_GPIO_WritePin(YELLOW_LED_GPIO_Port,YELLOW_LED_Pin, GPIO_PIN_SET);
- 8001550:	2201      	movs	r2, #1
- 8001552:	2120      	movs	r1, #32
- 8001554:	4845      	ldr	r0, [pc, #276]	; (800166c <fsm_manual_run+0x2d8>)
- 8001556:	f000 fe26 	bl	80021a6 <HAL_GPIO_WritePin>
+ 8001540:	2201      	movs	r2, #1
+ 8001542:	2120      	movs	r1, #32
+ 8001544:	4849      	ldr	r0, [pc, #292]	; (800166c <fsm_manual_run+0x2d8>)
+ 8001546:	f000 fe2e 	bl	80021a6 <HAL_GPIO_WritePin>
 		HAL_GPIO_WritePin(RED_LED_GPIO_Port,RED_LED_Pin, GPIO_PIN_SET);
- 800155a:	2201      	movs	r2, #1
- 800155c:	2140      	movs	r1, #64	; 0x40
- 800155e:	4843      	ldr	r0, [pc, #268]	; (800166c <fsm_manual_run+0x2d8>)
- 8001560:	f000 fe21 	bl	80021a6 <HAL_GPIO_WritePin>
+ 800154a:	2201      	movs	r2, #1
+ 800154c:	2140      	movs	r1, #64	; 0x40
+ 800154e:	4847      	ldr	r0, [pc, #284]	; (800166c <fsm_manual_run+0x2d8>)
+ 8001550:	f000 fe29 	bl	80021a6 <HAL_GPIO_WritePin>
+		Increasing_time(&default_green, &display_green);
+ 8001554:	4948      	ldr	r1, [pc, #288]	; (8001678 <fsm_manual_run+0x2e4>)
+ 8001556:	4847      	ldr	r0, [pc, #284]	; (8001674 <fsm_manual_run+0x2e0>)
+ 8001558:	f7fe fdf8 	bl	800014c <Increasing_time>
+		Saving_time(&display_green, &default_green);
+ 800155c:	4945      	ldr	r1, [pc, #276]	; (8001674 <fsm_manual_run+0x2e0>)
+ 800155e:	4846      	ldr	r0, [pc, #280]	; (8001678 <fsm_manual_run+0x2e4>)
+ 8001560:	f7fe fe20 	bl	80001a4 <Saving_time>
 		if(isButton1Pressed()==1){
  8001564:	f7ff fbb2 	bl	8000ccc <isButton1Pressed>
  8001568:	4603      	mov	r3, r0
@@ -2753,24 +2753,24 @@ void fsm_manual_run(){
  80015e6:	4608      	mov	r0, r1
  80015e8:	f7fe ff80 	bl	80004ec <display7SEG2>
 		}
-		Increasing_time(&default_yellow, &display_yellow);
- 80015ec:	4924      	ldr	r1, [pc, #144]	; (8001680 <fsm_manual_run+0x2ec>)
- 80015ee:	4823      	ldr	r0, [pc, #140]	; (800167c <fsm_manual_run+0x2e8>)
- 80015f0:	f7fe fdac 	bl	800014c <Increasing_time>
-		Saving_time(&display_yellow, &default_yellow);
- 80015f4:	4921      	ldr	r1, [pc, #132]	; (800167c <fsm_manual_run+0x2e8>)
- 80015f6:	4822      	ldr	r0, [pc, #136]	; (8001680 <fsm_manual_run+0x2ec>)
- 80015f8:	f7fe fdd4 	bl	80001a4 <Saving_time>
 		HAL_GPIO_WritePin(RED_LED_GPIO_Port,RED_LED_Pin, GPIO_PIN_SET);
- 80015fc:	2201      	movs	r2, #1
- 80015fe:	2140      	movs	r1, #64	; 0x40
- 8001600:	481a      	ldr	r0, [pc, #104]	; (800166c <fsm_manual_run+0x2d8>)
- 8001602:	f000 fdd0 	bl	80021a6 <HAL_GPIO_WritePin>
+ 80015ec:	2201      	movs	r2, #1
+ 80015ee:	2140      	movs	r1, #64	; 0x40
+ 80015f0:	481e      	ldr	r0, [pc, #120]	; (800166c <fsm_manual_run+0x2d8>)
+ 80015f2:	f000 fdd8 	bl	80021a6 <HAL_GPIO_WritePin>
 		HAL_GPIO_WritePin(GREEN_LED_GPIO_Port,GREEN_LED_Pin, GPIO_PIN_SET);
- 8001606:	2201      	movs	r2, #1
- 8001608:	2110      	movs	r1, #16
- 800160a:	4818      	ldr	r0, [pc, #96]	; (800166c <fsm_manual_run+0x2d8>)
- 800160c:	f000 fdcb 	bl	80021a6 <HAL_GPIO_WritePin>
+ 80015f6:	2201      	movs	r2, #1
+ 80015f8:	2110      	movs	r1, #16
+ 80015fa:	481c      	ldr	r0, [pc, #112]	; (800166c <fsm_manual_run+0x2d8>)
+ 80015fc:	f000 fdd3 	bl	80021a6 <HAL_GPIO_WritePin>
+		Increasing_time(&default_yellow, &display_yellow);
+ 8001600:	491f      	ldr	r1, [pc, #124]	; (8001680 <fsm_manual_run+0x2ec>)
+ 8001602:	481e      	ldr	r0, [pc, #120]	; (800167c <fsm_manual_run+0x2e8>)
+ 8001604:	f7fe fda2 	bl	800014c <Increasing_time>
+		Saving_time(&display_yellow, &default_yellow);
+ 8001608:	491c      	ldr	r1, [pc, #112]	; (800167c <fsm_manual_run+0x2e8>)
+ 800160a:	481d      	ldr	r0, [pc, #116]	; (8001680 <fsm_manual_run+0x2ec>)
+ 800160c:	f7fe fdca 	bl	80001a4 <Saving_time>
 		if(isButton1Pressed()==1){
  8001610:	f7ff fb5c 	bl	8000ccc <isButton1Pressed>
  8001614:	4603      	mov	r3, r0

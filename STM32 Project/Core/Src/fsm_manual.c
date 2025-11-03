@@ -34,10 +34,10 @@ void fsm_manual_run(){
 			display7SEG1(display_red/10);
 			display7SEG2(display_red%10);
 		}
-		Increasing_time(&default_red, &display_red);
-		Saving_time(&display_red, &default_red);
 		HAL_GPIO_WritePin(YELLOW_LED_GPIO_Port,YELLOW_LED_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GREEN_LED_GPIO_Port,GREEN_LED_Pin, GPIO_PIN_SET);
+		Increasing_time(&default_red, &display_red);
+		Saving_time(&display_red, &default_red);
 		if(isButton1Pressed()==1){
 			mode=MAN_GREEN;
 			setTimer3(250);
@@ -54,10 +54,10 @@ void fsm_manual_run(){
 			display7SEG1(display_green/10);
 			display7SEG2(display_green%10);
 		}
-		Increasing_time(&default_green, &display_green);
-		Saving_time(&display_green, &default_green);
 		HAL_GPIO_WritePin(YELLOW_LED_GPIO_Port,YELLOW_LED_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(RED_LED_GPIO_Port,RED_LED_Pin, GPIO_PIN_SET);
+		Increasing_time(&default_green, &display_green);
+		Saving_time(&display_green, &default_green);
 		if(isButton1Pressed()==1){
 			mode=MAN_YELLOW;
 			setTimer3(250);
@@ -74,10 +74,10 @@ void fsm_manual_run(){
 			display7SEG1(display_yellow/10);
 			display7SEG2(display_yellow%10);
 		}
-		Increasing_time(&default_yellow, &display_yellow);
-		Saving_time(&display_yellow, &default_yellow);
 		HAL_GPIO_WritePin(RED_LED_GPIO_Port,RED_LED_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GREEN_LED_GPIO_Port,GREEN_LED_Pin, GPIO_PIN_SET);
+		Increasing_time(&default_yellow, &display_yellow);
+		Saving_time(&display_yellow, &default_yellow);
 		if(isButton1Pressed()==1){
 			mode=INIT;
 			setTimer3(250);
