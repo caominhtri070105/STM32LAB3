@@ -12,6 +12,9 @@
 #include "fsm_automatic.h"
 #include "Increasing_time.h"
 
+extern int default_red;
+extern int default_green;
+extern int default_yellow;
 
 void fsm_manual_run();
 

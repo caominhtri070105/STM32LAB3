@@ -213,7 +213,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOB, SEGM6_Pin|SEG0_Pin|SEG1_Pin|SEG_2_Pin
                           |SEG_3_Pin|SEG_4_Pin|SEG_5_Pin|SEG_6_Pin
                           |EN1_Pin|SEG2_Pin|SEG3_Pin|SEG4_Pin
-                          |SEG5_Pin|SEG6_Pin|SEG_1_Pin, GPIO_PIN_RESET);
+                          |SEG5_Pin|SEG6_Pin|SEG_0_Pin|SEG_1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : EN0_Pin GREEN_LED_Pin YELLOW_LED_Pin RED_LED_Pin
                            GREEN_LED1_Pin YELLOW_LED1_Pin RED_LED1_Pin SEGM0_Pin
@@ -237,21 +237,15 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pins : SEGM6_Pin SEG0_Pin SEG1_Pin SEG_2_Pin
                            SEG_3_Pin SEG_4_Pin SEG_5_Pin SEG_6_Pin
                            EN1_Pin SEG2_Pin SEG3_Pin SEG4_Pin
-                           SEG5_Pin SEG6_Pin SEG_1_Pin */
+                           SEG5_Pin SEG6_Pin SEG_0_Pin SEG_1_Pin */
   GPIO_InitStruct.Pin = SEGM6_Pin|SEG0_Pin|SEG1_Pin|SEG_2_Pin
                           |SEG_3_Pin|SEG_4_Pin|SEG_5_Pin|SEG_6_Pin
                           |EN1_Pin|SEG2_Pin|SEG3_Pin|SEG4_Pin
-                          |SEG5_Pin|SEG6_Pin|SEG_1_Pin;
+                          |SEG5_Pin|SEG6_Pin|SEG_0_Pin|SEG_1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : SEG_0_Pin */
-  GPIO_InitStruct.Pin = SEG_0_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(SEG_0_GPIO_Port, &GPIO_InitStruct);
 
 }
 

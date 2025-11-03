@@ -7,9 +7,15 @@
 
 #include "Increasing_time.h"
 
-void Increasing_time(int num){
+void Increasing_time(int *num, int *display_manual){
 	if(isButton2Pressed()==1){
-		num++;
+		*num=*num+1000;
+		if (*num>99000) *num=1000;
+		*display_manual = *num / 1000;
 	}
-	if (num>99) num=0;
+}
+void Saving_time(int *display_manual, int *default_led){
+	if(isButton3Pressed()==1){
+		*default_led=*display_manual*1000;
+	}
 }

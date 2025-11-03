@@ -14,5 +14,6 @@
 void display7SEG1();
 void display7SEG2();
 void display7SEGMODE();
+void update7SEGMODE();
 
 #endif /* INC_LED7SEG_SETTING_H_ */

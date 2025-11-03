@@ -12,5 +12,6 @@
 #include "LED7SEG_setting.h"
 
 void Increasing_time();
+void Saving_time();
 
 #endif /* INC_INCREASING_TIME_H_ */
