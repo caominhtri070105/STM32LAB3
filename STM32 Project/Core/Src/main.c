@@ -99,9 +99,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   status=INIT;
   status1=INIT;
+  mode=INIT;
   while (1)
   {
-	  fsm_automatic_run();
 	  fsm_manual_run();
     /* USER CODE END WHILE */
 

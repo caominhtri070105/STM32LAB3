@@ -24,5 +24,5 @@
 
 extern int status;
 extern int status1;
-
+extern int mode;
 #endif /* INC_GLOBAL_H_ */

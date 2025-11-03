@@ -1,3 +1,5 @@
+"./Core/Src/Increasing_time.o"
+"./Core/Src/LED7SEG_setting.o"
 "./Core/Src/button.o"
 "./Core/Src/fsm_automatic.o"
 "./Core/Src/fsm_manual.o"

@@ -9,6 +9,9 @@
 #define INC_FSM_MANUAL_H_
 
 #include "global.h"
+#include "fsm_automatic.h"
+#include "Increasing_time.h"
+
 
 void fsm_manual_run();
 

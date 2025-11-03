@@ -1,0 +1,3 @@
+LED7SEG_setting.c:23:6:display7SEG1	24	static
+LED7SEG_setting.c:36:6:display7SEG2	24	static
+LED7SEG_setting.c:49:6:display7SEGMODE	24	static
