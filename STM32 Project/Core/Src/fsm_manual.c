@@ -41,7 +41,7 @@ void fsm_manual_run(){
 		}
 		HAL_GPIO_WritePin(YELLOW_LED_GPIO_Port,YELLOW_LED_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GREEN_LED_GPIO_Port,GREEN_LED_Pin, GPIO_PIN_SET);
-		Increasing_time(&default_red, &display_red);
+		Increasing_time(&display_red);
 		Saving_time(&display_red, &default_red);
 		if(isButton1Pressed()==1){
 			mode=MAN_GREEN;

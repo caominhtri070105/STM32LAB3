@@ -8,30 +8,37 @@
 int default_green=3000;
 int default_red=5000;
 int default_yellow=2000;
-int default_green1=3000;
-int default_red1=5000;
-int default_yellow1=2000;
 int counter_red;
 int counter_green;
 int counter_yellow;
 int counter_red1;
 int counter_green1;
 int counter_yellow1;
+int default_green1;
+int default_red1;
+int default_yellow1;
 void fsm_automatic_run(){
+	default_green1 = default_green;
+	default_red1 = default_red;
+	default_yellow1 = default_yellow;
 	switch(status){
 	case INIT:
 		HAL_GPIO_WritePin(RED_LED_GPIO_Port,RED_LED_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(YELLOW_LED_GPIO_Port,YELLOW_LED_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GREEN_LED_GPIO_Port,GREEN_LED_Pin, GPIO_PIN_SET);
+
 		status = AUTO_RED;
+
 		setTimer1(1000);
 		setTimer4(250);
+
 		counter_red=default_red/1000;
 		break;
 	case AUTO_RED:
 		HAL_GPIO_WritePin(RED_LED_GPIO_Port,RED_LED_Pin, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(YELLOW_LED_GPIO_Port,YELLOW_LED_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GREEN_LED_GPIO_Port,GREEN_LED_Pin, GPIO_PIN_SET);
+
 		if(timer1_flag==1){
 			counter_red--;
 			setTimer1(1000);
@@ -64,6 +71,7 @@ void fsm_automatic_run(){
 		HAL_GPIO_WritePin(RED_LED_GPIO_Port, RED_LED_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(YELLOW_LED_GPIO_Port, YELLOW_LED_Pin, GPIO_PIN_RESET);
 		HAL_GPIO_WritePin(GREEN_LED_GPIO_Port, GREEN_LED_Pin, GPIO_PIN_SET);
+
 		if(timer1_flag==1){
 			counter_yellow--;
 			setTimer1(1000);
