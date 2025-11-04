@@ -9,9 +9,8 @@
 
 void Increasing_time(int *num, int *display_manual){
 	if(isButton2Pressed()==1){
-		*num=*num+1000;
-		if (*num>99000) *num=1000;
-		*display_manual = *num / 1000;
+		*display_manual = *display_manual + 1;
+		if (*display_manual > 99) *display_manual = 1;
 	}
 }
 void Saving_time(int *display_manual, int *default_led){
