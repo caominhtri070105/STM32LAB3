@@ -18,6 +18,11 @@ void fsm_manual_run(){
 			if (index_led>=2) index_led=0;
 			setTimer4(250);
 		}
+	if(isButton3Pressed()==1){
+		mode=INIT;
+		status = INIT;
+	    status1 = INIT;
+	}
 	switch(mode){
 	case INIT:
 		fsm_automatic_run();
@@ -43,11 +48,6 @@ void fsm_manual_run(){
 			display_green = default_green / 1000;
 			setTimer3(250);
 		}
-		if(isButton3Pressed()==1){
-			mode=INIT;
-			status = INIT;
-		    status1 = INIT;
-		}
 		break;
 	case MAN_GREEN:
 		if(timer3_flag==1){
@@ -58,17 +58,12 @@ void fsm_manual_run(){
 		}
 		HAL_GPIO_WritePin(YELLOW_LED_GPIO_Port,YELLOW_LED_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(RED_LED_GPIO_Port,RED_LED_Pin, GPIO_PIN_SET);
-		Increasing_time(&default_green, &display_green);
-		Saving_time(&display_green, &default_green);
+		Increasing_time(&display_green);
+		Saving_time(&default_green);
 		if(isButton1Pressed()==1){
 			mode=MAN_YELLOW;
 			display_yellow = default_yellow / 1000;
 			setTimer3(250);
-		}
-		if(isButton3Pressed()==1){
-			mode=INIT;
-			status = INIT;
-		    status1 = INIT;
 		}
 		break;
 	case MAN_YELLOW:
@@ -80,16 +75,11 @@ void fsm_manual_run(){
 		}
 		HAL_GPIO_WritePin(RED_LED_GPIO_Port,RED_LED_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(GREEN_LED_GPIO_Port,GREEN_LED_Pin, GPIO_PIN_SET);
-		Increasing_time(&default_yellow, &display_yellow);
+		Increasing_time(&display_yellow);
 		Saving_time(&display_yellow, &default_yellow);
 		if(isButton1Pressed()==1){
 			mode=INIT;
 			setTimer3(250);
-		}
-		if(isButton3Pressed()==1){
-			mode=INIT;
-			status = INIT;
-		    status1 = INIT;
 		}
 		break;
 	default:
